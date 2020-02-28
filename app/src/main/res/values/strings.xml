@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BicycleBook</string>
+    <string name="title_activity_maps">BycicleBook</string>
+    <string name="create_route">Создать маршрут</string>
+    <string name="join_route">Присоединиться к маршруту</string>
+</resources>
