@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">BicycleBook</string>
-    <string name="title_activity_maps">BycicleBook</string>
-    <string name="create_route">Создать маршрут</string>
-    <string name="join_route">Присоединиться к маршруту</string>
+    <string name="title_activity_maps">BicycleBook</string>
+    <string name="create_start_point">Создать точку маршрута</string>
 </resources>
