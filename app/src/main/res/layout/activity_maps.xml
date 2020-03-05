@@ -10,34 +10,61 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/tools"
+        app:layout_constraintBottom_toTopOf="@+id/lower_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></fragment>
+        app:layout_constraintTop_toBottomOf="@+id/upper_toolbar"></fragment>
 
-    <View
-        android:id="@+id/tools"
-        android:layout_width="546dp"
-        android:layout_height="88dp"
-        android:background="@android:drawable/bottom_bar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/upper_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/lower_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/upper_toolbar"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/create_point_btn"
-        android:layout_width="143dp"
-        android:layout_height="57dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="setCurrentPoint"
         android:text="@string/create_start_point"
-        app:layout_constraintBottom_toBottomOf="@+id/tools"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="@+id/tools"
-        app:layout_constraintTop_toBottomOf="@+id/map"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintBottom_toBottomOf="@+id/lower_toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/lower_toolbar"
+        app:layout_constraintStart_toStartOf="@+id/lower_toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/map" />
+
+    <Button
+        android:id="@+id/go_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="login"
+        android:text="@string/login_btn_txt"
+        app:layout_constraintBottom_toTopOf="@+id/map"
+        app:layout_constraintEnd_toStartOf="@+id/upper_toolbar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/upper_toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

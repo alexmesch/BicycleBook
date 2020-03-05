@@ -2,4 +2,10 @@
     <string name="app_name">BicycleBook</string>
     <string name="title_activity_maps">BicycleBook</string>
     <string name="create_start_point">Создать точку маршрута</string>
+    <string name="welcome">Добро пожаловать в BicycleBook!</string>
+    <string name="login_placeholder">Логин</string>
+    <string name="password_placeholder">Пароль</string>
+    <string name="login_btn_txt">Войти</string>
+    <string name="signUp_btn_txt">Зарегистрироваться</string>
+    <string name="copyright">copyright</string>
 </resources>
