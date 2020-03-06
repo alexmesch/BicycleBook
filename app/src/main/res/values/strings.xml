@@ -8,4 +8,5 @@
     <string name="login_btn_txt">Войти</string>
     <string name="signUp_btn_txt">Зарегистрироваться</string>
     <string name="copyright">copyright</string>
+    <string name="return_btn_desc">just return button</string>
 </resources>
