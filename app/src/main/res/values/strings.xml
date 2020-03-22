@@ -9,4 +9,6 @@
     <string name="signUp_btn_txt">Зарегистрироваться</string>
     <string name="copyright">copyright</string>
     <string name="return_btn_desc">just return button</string>
+    <string name="repeat_pswrd_placeholder">Повторите пароль</string>
+    <string name="register_label">Регистрация</string>
 </resources>

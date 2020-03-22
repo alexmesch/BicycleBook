@@ -1,6 +1,7 @@
 package com.msch.bicyclebook;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -17,7 +18,11 @@ public class SignIn extends Activity {
 
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha_transition);
         anim_elements.startAnimation(anim);
+    }
 
+    public void register(View v) {
+        Intent signUp = new Intent(this, SignUp.class);
+        startActivity(signUp);
     }
 
     public void returnToMaps(View v) {

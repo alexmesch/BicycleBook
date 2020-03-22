@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/signIn_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +11,24 @@
         android:id="@+id/signIn_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/repeat_pswrd_field"
+            android:layout_width="309dp"
+            android:layout_height="56dp"
+            android:autofillHints="username"
+            android:background="@android:drawable/edit_text"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:hint="@string/repeat_pswrd_placeholder"
+            android:inputType="textWebPassword"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pswrd_field"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/welcome_text"
@@ -23,10 +42,10 @@
             android:typeface="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.478"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.204" />
+            app:layout_constraintVertical_bias="0.166" />
 
         <EditText
             android:id="@+id/login_field"
@@ -59,42 +78,26 @@
             android:inputType="textWebPassword"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_field"
-            app:layout_constraintVertical_bias="0.037" />
-
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="258dp"
-            android:layout_height="43dp"
-            android:background="@android:drawable/btn_default"
-            android:shadowColor="@color/black"
-            android:text="@string/login_btn_txt"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pswrd_field"
-            app:layout_constraintVertical_bias="0.056" />
+            app:layout_constraintTop_toBottomOf="@+id/login_field" />
 
         <Button
             android:id="@+id/signUp_btn"
             android:layout_width="258dp"
             android:layout_height="43dp"
             android:background="@android:drawable/btn_default"
-            android:onClick="register"
+            android:onClick="registerNewUser"
             android:shadowColor="@color/black"
             android:text="@string/signUp_btn_txt"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_btn"
-            app:layout_constraintVertical_bias="0.037" />
+            app:layout_constraintTop_toBottomOf="@+id/repeat_pswrd_field"
+            app:layout_constraintVertical_bias="0.052" />
 
         <ImageButton
             android:id="@+id/signIn_return_btn"

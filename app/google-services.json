@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "827762338029",
+    "firebase_url": "https://byciclebook.firebaseio.com",
+    "project_id": "byciclebook",
+    "storage_bucket": "byciclebook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827762338029:android:e17b2478ea05f709b884e4",
+        "android_client_info": {
+          "package_name": "com.msch.bicyclebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827762338029-ika45if640cjitmpt4l6voaq7550r3oh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDswd0TGFu2pXEn2xVdHLzbxIo6zhYnwDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827762338029-ika45if640cjitmpt4l6voaq7550r3oh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -43,6 +43,10 @@
             android:name=".SignIn"
             android:label="@string/title_activity_maps">
         </activity>
+        <activity
+            android:name=".SignUp"
+            android:label="@string/register_label">
+        </activity>
     </application>
 
 </manifest>
