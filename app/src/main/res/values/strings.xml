@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">BicycleBook</string>
     <string name="title_activity_maps">BicycleBook</string>
-    <string name="create_start_point">Создать точку маршрута</string>
+    <string name="start">Старт</string>
     <string name="welcome">Добро пожаловать в BicycleBook!</string>
     <string name="login_placeholder">Логин</string>
     <string name="password_placeholder">Пароль</string>
@@ -11,4 +11,7 @@
     <string name="return_btn_desc">just return button</string>
     <string name="repeat_pswrd_placeholder">Повторите пароль</string>
     <string name="register_label">Регистрация</string>
+    <string name="finish">Финиш</string>
+    <string name="timer_title">Времени прошло:</string>
+    <string name="default_timer_value">00:00:00</string>
 </resources>
