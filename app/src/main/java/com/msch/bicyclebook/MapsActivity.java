@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -20,6 +21,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+
 import java.util.ArrayList;
 
 
@@ -32,7 +36,7 @@ public class MapsActivity extends FragmentActivity implements
     public CharSequence spentTime;
     private Button createRouteBtn;
     public Chronometer timer;
-    public ArrayList<LatLng> route = new ArrayList<>();
+    public ArrayList<LatLng> route = new ArrayList<LatLng>();
 
     View.OnClickListener createRouteBtnListener = new View.OnClickListener() {
         private boolean isCreateButtonPressed = true;
@@ -43,6 +47,21 @@ public class MapsActivity extends FragmentActivity implements
             coordinates = mMap.getMyLocation();
             currentPosition = new LatLng(coordinates.getLatitude(), coordinates.getLongitude());
             route.add(currentPosition);
+        }
+
+        public void drawRoute(final ArrayList<LatLng> route) {
+            double latitude, longitude;
+            LatLng point;
+            int arraySize = route.size();
+            PolylineOptions routeLine = new PolylineOptions();
+            routeLine.color(Color.RED);
+            for (int i=0; i < arraySize; i++) {
+                point = route.get(i);
+                latitude = point.latitude;
+                longitude = point.longitude;
+                routeLine.add(new LatLng(latitude,longitude));
+            }
+            Polyline polyline = mMap.addPolyline(routeLine);
         }
 
         @Override
@@ -66,6 +85,7 @@ public class MapsActivity extends FragmentActivity implements
             });
 
             if (isCreateButtonPressed) {
+                route.clear();
                 createRouteBtn.setText("Финиш");
                 isCreateButtonPressed = false;
                 timer.setBase(SystemClock.elapsedRealtime());
@@ -76,9 +96,11 @@ public class MapsActivity extends FragmentActivity implements
                 isCreateButtonPressed = true;
                 timer.stop();
                 spentTime = timer.getText();
-                Toast.makeText(getApplicationContext(),spentTime,Toast.LENGTH_LONG).show();
-                System.out.println(route);
+                //System.out.println(route); //DEBUG
+                writeCoordinates();
                 mMap.addMarker(new MarkerOptions().position(currentPosition).title("Финиш"));
+                drawRoute(route);
+                //route.clear();
             }
         }
     };
@@ -104,19 +126,15 @@ public class MapsActivity extends FragmentActivity implements
     }
 
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case 1: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    mMap.setMyLocationEnabled(true);
-                    mMap.setOnMyLocationButtonClickListener(this);
-                    mMap.setOnMyLocationClickListener(this);
-                } else {
-                    Toast.makeText(this, "Вы не разрешили геолокацию!", Toast.LENGTH_LONG).show();
-                }
-                return;
-            }
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+            mMap.setOnMyLocationButtonClickListener(this);
+            mMap.setOnMyLocationClickListener(this);
+        } else {
+            Toast.makeText(this, "Вы не разрешили геолокацию!", Toast.LENGTH_LONG).show();
         }
     }
+
 
     @Override
     public void onMyLocationClick(@NonNull Location location) {
