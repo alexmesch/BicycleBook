@@ -3,9 +3,6 @@ package com.msch.bicyclebook;
 public class User {
     String uid, name, email;
 
-    public User() {
-    }
-
     public User(String uid, String name, String email) {
         this.uid = uid;
         this.name = name;

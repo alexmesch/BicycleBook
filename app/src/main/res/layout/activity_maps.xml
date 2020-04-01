@@ -60,9 +60,10 @@
         android:layout_height="wrap_content"
         android:onClick="login"
         android:text="@string/login_btn_txt"
+        android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/map"
         app:layout_constraintEnd_toStartOf="@+id/upper_toolbar"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toEndOf="@+id/upper_toolbar"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,5 +89,31 @@
         app:layout_constraintStart_toStartOf="@+id/lower_toolbar"
         app:layout_constraintTop_toBottomOf="@+id/timer_title"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/myRoutesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/myRoutesBtnText"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/map"
+        app:layout_constraintEnd_toStartOf="@+id/go_to_login"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/upper_toolbar"
+        app:layout_constraintTop_toTopOf="@+id/upper_toolbar" />
+
+    <Button
+        android:id="@+id/saveRouteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="@string/saveRouteBtnText"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/map"
+        app:layout_constraintEnd_toEndOf="@+id/upper_toolbar"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/go_to_login"
+        app:layout_constraintTop_toTopOf="@+id/upper_toolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
