@@ -99,19 +99,5 @@
             app:layout_constraintTop_toBottomOf="@+id/repeat_pswrd_field"
             app:layout_constraintVertical_bias="0.052" />
 
-        <ImageButton
-            android:id="@+id/signIn_return_btn"
-            android:layout_width="36dp"
-            android:layout_height="29dp"
-            android:background="?attr/actionModeCloseDrawable"
-            android:contentDescription="@string/return_btn_desc"
-            android:onClick="returnToMaps"
-            app:layout_constraintBottom_toTopOf="@+id/welcome_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.041"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.141"
-            app:srcCompat="?attr/actionModeCloseDrawable" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

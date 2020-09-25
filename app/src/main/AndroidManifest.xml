@@ -7,9 +7,11 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -47,6 +49,14 @@
         <activity
             android:name=".SignUp"
             android:label="@string/register_label">
+        </activity>
+        <activity
+            android:name=".RoutesList"
+            android:label="@string/routes_list">
+        </activity>
+        <activity
+            android:name = ".SettingsScreen"
+            android:label="@string/settings">
         </activity>
     </application>
 

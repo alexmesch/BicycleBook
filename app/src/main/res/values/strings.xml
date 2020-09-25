@@ -20,4 +20,10 @@
     <string name="routeTime">RouteTime</string>
     <string name="saveRouteBtnText">Сохранить маршрут</string>
     <string name="srd_routeName">Введите название маршрута:</string>
+    <string name="routes_list">Список маршрутов</string>
+    <string name="my_routes">Мои маршруты</string>
+    <string name="map_tab">Карта</string>
+    <string name="settings">Настройки</string>
+    <string name="default_distance_value">0.00 км</string>
+    <string name="default_routeName">Имя маршрута</string>
 </resources>

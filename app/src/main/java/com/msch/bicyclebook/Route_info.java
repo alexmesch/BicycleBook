@@ -1,35 +1,53 @@
 package com.msch.bicyclebook;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
-//This is object for writing to JSON
+
 public class Route_info {
-    private int routeId;
+    @SerializedName("routeId")
+    private String routeId;
+
+    @SerializedName("routeName")
     private String routeName;
-    private long traveledDistance;
-    private CharSequence routeTime;
+
+    @SerializedName("traveledDistance")
+    private float traveledDistance;
+
+    @SerializedName("routeTime")
+    private String routeTime;
+
+    @SerializedName("routePoints")
     private ArrayList<LatLng> routePoints;
 
-    //getters
-    public int getRouteId() { return routeId; }
+    @SerializedName("routeColor")
+    private int[] routeColor;
+
+
+
+    //public String getRouteId() { return routeId; }
 
     public String getRouteName() { return routeName; }
 
-    public CharSequence getRouteTime() { return routeTime; }
+    public String getRouteTime() { return routeTime; }
 
-    public long getTraveledDistance() { return traveledDistance; }
+    public float getTraveledDistance() { return traveledDistance; }
 
     public ArrayList getRoutePoints() { return routePoints; }
 
-    //setters
-    public void setRouteId(int routeId) { this.routeId = routeId; }
+    public int[] getRouteColor() { return routeColor; }
+
+
+    public void setRouteId(String routeId) { this.routeId = routeId; }
 
     public void setRouteName(String routeName) { this.routeName = routeName; }
 
-    public void setRouteTime (CharSequence routeTime) { this.routeTime = routeTime; }
+    public void setRouteTime (String routeTime) { this.routeTime = routeTime; }
 
-    public void setTraveledDistance (long traveledDistance) { this.traveledDistance = traveledDistance; }
+    public void setTraveledDistance (float traveledDistance) { this.traveledDistance = traveledDistance; }
 
     public void setRoutePoints (ArrayList<LatLng> routePoints) { this.routePoints = routePoints; }
+
+    public void setRouteColor(int[] routeColor) { this.routeColor = routeColor; }
 }
