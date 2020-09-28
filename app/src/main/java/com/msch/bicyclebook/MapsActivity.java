@@ -325,9 +325,16 @@ public class MapsActivity extends FragmentActivity implements
 
     @Override
     public void onMapLoaded() {
-        coordinates = mMap.getMyLocation();
-        currentPosition = new LatLng(coordinates.getLatitude(),coordinates.getLongitude());
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentPosition,15));
+        try {
+            coordinates = mMap.getMyLocation();
+            currentPosition = new LatLng(coordinates.getLatitude(), coordinates.getLongitude());
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentPosition, 15));
+        } catch(Exception e) {
+            if (coordinates == null){
+                Toast.makeText(getApplicationContext(),"Геоданные не работают!", Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+            }
+        }
     }
 
     //************************************* PORTALS ************************************//

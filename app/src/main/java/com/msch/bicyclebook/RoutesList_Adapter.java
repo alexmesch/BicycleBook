@@ -3,6 +3,7 @@ package com.msch.bicyclebook;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,13 +12,26 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 
@@ -31,10 +45,11 @@ public class RoutesList_Adapter extends RecyclerView.Adapter<RoutesList_Adapter.
     private ArrayList<int[]> mRV_colors = new ArrayList<>();
     private ImageView mRV_waypointIcon;
     private Button mRV_deleteButton;
+    private Button mRV_uploadBtn;
 
     private Context mContext;
 
-    public RoutesList_Adapter(ArrayList<String> mRV_names, ArrayList<Float> mRV_distances, ArrayList<String> mRV_times, ArrayList<int[]> mRV_colors, Button mRV_deleteBtn, ImageView mRV_waypointIcon, ArrayList<String> mRV_routesIDs, Context mContext) {
+    public RoutesList_Adapter(ArrayList<String> mRV_names, ArrayList<Float> mRV_distances, ArrayList<String> mRV_times, ArrayList<int[]> mRV_colors, Button mRV_deleteBtn, Button mRV_uploadBtn, ImageView mRV_waypointIcon, ArrayList<String> mRV_routesIDs, Context mContext) {
         this.mRV_names = mRV_names;
         this.mRV_distances = mRV_distances;
         this.mRV_times = mRV_times;
@@ -43,6 +58,7 @@ public class RoutesList_Adapter extends RecyclerView.Adapter<RoutesList_Adapter.
         this.mContext = mContext;
         this.mRV_routesIDs = mRV_routesIDs;
         this.mRV_colors = mRV_colors;
+        this.mRV_uploadBtn = mRV_uploadBtn;
     }
 
     @NonNull
@@ -87,6 +103,41 @@ public class RoutesList_Adapter extends RecyclerView.Adapter<RoutesList_Adapter.
                 filePath.delete();
             }
         });
+
+        holder.RV_uploadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String routeFileName;
+                routeFileName = mRV_routesIDs.get(position);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                FirebaseStorage storage;
+                StorageReference storageReference;
+
+                storage = FirebaseStorage.getInstance();
+                storageReference = storage.getReference();
+
+                StorageReference ref = storageReference.child(user.getUid() + "/" + routeFileName);
+                try {
+                    InputStream stream = new FileInputStream(new File(Environment.getExternalStorageDirectory() + "/Android/data/" + "com.msch.bicyclebook" + "/savedRoutes/" + routeFileName));
+                UploadTask uploadTask = ref.putStream(stream);
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText((AppCompatActivity) mContext,"Не удалось выгрузить файл",Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText((AppCompatActivity) mContext,"Файл выгружен!",Toast.LENGTH_SHORT).show();
+                        taskSnapshot.getMetadata();
+                    }
+                });
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @Override
@@ -101,6 +152,7 @@ public class RoutesList_Adapter extends RecyclerView.Adapter<RoutesList_Adapter.
         TextView RV_distance;
         TextView RV_time;
         Button RV_deleteBtn;
+        Button RV_uploadBtn;
         ConstraintLayout parent_layout;
 
 
@@ -112,6 +164,7 @@ public class RoutesList_Adapter extends RecyclerView.Adapter<RoutesList_Adapter.
             RV_time = itemView.findViewById(R.id.RV_routeTime);
             RV_deleteBtn = itemView.findViewById(R.id.RV_deleteBtn);
             RV_waypointIcon = itemView.findViewById(R.id.RV_image);
+            RV_uploadBtn = itemView.findViewById(R.id.RV_uploadBtn);
             parent_layout = itemView.findViewById(R.id.parent_layout);
         }
     }

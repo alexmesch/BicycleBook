@@ -91,8 +91,9 @@ public class RoutesList extends AppCompatActivity {
     private void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.routeslist_RV);
         Button mRV_deleteBtn = findViewById(R.id.RV_deleteBtn);
+        Button mRV_uploadBtn = findViewById(R.id.RV_uploadBtn);
         ImageView mRV_waypointIcon = findViewById(R.id.RV_image);
-        RoutesList_Adapter adapter = new RoutesList_Adapter(mRV_names, mRV_distances, mRV_times, mRV_colors, mRV_deleteBtn, mRV_waypointIcon, routesIDs ,this );
+        RoutesList_Adapter adapter = new RoutesList_Adapter(mRV_names, mRV_distances, mRV_times, mRV_colors, mRV_deleteBtn, mRV_uploadBtn, mRV_waypointIcon, routesIDs ,this );
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

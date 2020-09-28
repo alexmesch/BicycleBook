@@ -26,4 +26,8 @@
     <string name="settings">Настройки</string>
     <string name="default_distance_value">0.00 км</string>
     <string name="default_routeName">Имя маршрута</string>
+    <string name="auth">Авторизация</string>
+    <string name="loading">Загрузка</string>
+    <string name="auth_failed">Не удалось выполнить вход</string>
+    <string name="download_btn">Загрузить маршруты из облака</string>
 </resources>

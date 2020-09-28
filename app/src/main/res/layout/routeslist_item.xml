@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="@+id/RV_image"
         app:layout_constraintTop_toTopOf="@+id/RV_image"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintVertical_bias="0.321" />
 
     <ImageView
         android:id="@+id/RV_image"
@@ -27,11 +27,8 @@
         android:background="@drawable/ic_location"
         android:contentDescription="routeIcon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/RV_routeName"
@@ -40,44 +37,52 @@
         android:text="@string/default_routeName"
         android:textColor="#000"
         android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/RV_deleteBtn"
-        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintEnd_toStartOf="@+id/RV_uploadBtn"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toEndOf="@+id/RV_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/RV_routeDistance"
         android:layout_width="63dp"
         android:layout_height="22dp"
         android:text="@string/default_distance_value"
-        app:layout_constraintEnd_toStartOf="@+id/RV_deleteBtn"
-        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintBottom_toTopOf="@+id/RV_routeTime"
+        app:layout_constraintEnd_toStartOf="@+id/RV_uploadBtn"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toEndOf="@+id/RV_image"
-        app:layout_constraintTop_toBottomOf="@+id/RV_routeName" />
+        app:layout_constraintTop_toBottomOf="@+id/RV_routeName"
+        app:layout_constraintVertical_bias="0.38" />
 
     <TextView
         android:id="@+id/RV_routeTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/default_timer_value"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/RV_deleteBtn"
-        app:layout_constraintHorizontal_bias="0.017"
-        app:layout_constraintStart_toEndOf="@+id/RV_image"
-        app:layout_constraintTop_toBottomOf="@+id/RV_routeDistance"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toStartOf="@+id/RV_uploadBtn"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toEndOf="@+id/RV_image" />
 
     <Button
         android:id="@+id/RV_deleteBtn"
-        android:layout_width="38dp"
+        android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/ic_delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/RV_uploadBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/ic_file_upload_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/RV_deleteBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.354" />
+        app:layout_constraintVertical_bias="0.494" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

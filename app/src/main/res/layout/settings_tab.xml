@@ -6,27 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Switch
-        android:id="@+id/switch4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Настройка 1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.319" />
-
-    <Switch
-        android:id="@+id/switch3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Настройка 2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -51,5 +30,21 @@
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+    <Button
+        android:id="@+id/downloadBtn"
+        android:layout_width="323dp"
+        android:layout_height="52dp"
+        android:background="@color/colorPrimary"
+        android:onClick="downloadRoutes"
+        android:text="@string/download_btn"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.068" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
