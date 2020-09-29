@@ -23,7 +23,7 @@ import com.google.firebase.storage.StorageReference;
 import java.io.File;
 
 
-public class SettingsScreen extends Activity {
+public class SettingsScreen extends ProgressActivity {
     Button downloadBtn;
 
     public void downloadRoutes(View v) {
@@ -34,6 +34,8 @@ public class SettingsScreen extends Activity {
     storage = FirebaseStorage.getInstance();
     storageReference = storage.getReference().child(user.getUid() + "/");
 
+    showProgressDialog();
+
     final File rootPath = new File(Environment.getExternalStorageDirectory() + "/Android/data/" + "com.msch.bicyclebook" + "/savedRoutes/" );
 
         storageReference.listAll()
@@ -42,8 +44,10 @@ public class SettingsScreen extends Activity {
         public void onSuccess(ListResult listResult) {
             for (StorageReference item : listResult.getItems()) {
                 StorageReference resultStorage = storageReference.child(item.getName());
-                Toast.makeText(getApplicationContext(),item.getName(),Toast.LENGTH_SHORT).show();
-                final File localFile = new File(rootPath + "/" + item.getName());
+
+                //Toast.makeText(getApplicationContext(),item.getName(),Toast.LENGTH_SHORT).show();
+
+                File localFile = new File(rootPath + "/" + item.getName());
                 resultStorage.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
@@ -56,6 +60,9 @@ public class SettingsScreen extends Activity {
                     }
                 });
             }
+            hideProgressDialog();
+            Toast.makeText(getApplicationContext(),"Маршруты загружены!",Toast.LENGTH_SHORT).show();
+            finish();
         }
     });
 }

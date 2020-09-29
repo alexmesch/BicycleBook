@@ -30,4 +30,6 @@
     <string name="loading">Загрузка</string>
     <string name="auth_failed">Не удалось выполнить вход</string>
     <string name="download_btn">Загрузить маршруты из облака</string>
+    <string name="logout">Выйти</string>
+    <string name="login_switch">Вход</string>
 </resources>

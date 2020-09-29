@@ -6,6 +6,21 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/login_button"
+        android:layout_width="334dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        android:onClick="login"
+        android:text="@string/login_btn_txt"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pswrd_field" />
+
+    <Button
         android:id="@+id/register_button"
         android:layout_width="334dp"
         android:layout_height="62dp"
@@ -16,19 +31,20 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pswrd_field"
-        app:layout_constraintVertical_bias="0.107"
-        tools:visibility="invisible" />
+        app:layout_constraintTop_toBottomOf="@+id/login_button"
+        app:layout_constraintVertical_bias="0.088"
+        tools:visibility="visible" />
 
     <EditText
         android:id="@+id/email_field"
         android:layout_width="338dp"
         android:layout_height="58dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="24dp"
         android:background="@android:drawable/edit_text"
         android:ems="10"
+        android:hint="Электронная почта"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -39,18 +55,32 @@
         android:id="@+id/pswrd_field"
         android:layout_width="338dp"
         android:layout_height="58dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:background="@android:drawable/edit_text"
         android:ems="10"
+        android:hint="Пароль"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_field" />
 
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/hidePasswordBtn"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:background="@drawable/show_password"
+        android:button="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/pswrd_field"
+        app:layout_constraintEnd_toEndOf="@+id/pswrd_field"
+        app:layout_constraintHorizontal_bias="0.969"
+        app:layout_constraintStart_toStartOf="@+id/pswrd_field"
+        app:layout_constraintTop_toTopOf="@+id/pswrd_field"
+        app:layout_constraintVertical_bias="0.437" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
@@ -61,64 +91,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/signUp_portal"
-        android:layout_width="104dp"
-        android:layout_height="56dp"
-        android:background="#00FFFFFF"
-        android:onClick="switchToRegister"
-        android:text="@string/register_label"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.996"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <TextView
         android:id="@+id/auth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:text="@string/auth"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toStartOf="@+id/signUp_portal"
-        app:layout_constraintHorizontal_bias="0.768"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="334dp"
-        android:layout_height="62dp"
-        android:background="@color/colorPrimary"
-        android:onClick="login"
-        android:text="@string/login_btn_txt"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pswrd_field"
-        app:layout_constraintVertical_bias="0.107" />
-
-    <Button
-        android:id="@+id/return_btn "
-        android:layout_width="30dp"
-        android:layout_height="29dp"
-        android:background="@drawable/ic_arrow_back_black_24dp"
-        android:onClick="returnToMaps"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toStartOf="@+id/auth"
-        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.592" />
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

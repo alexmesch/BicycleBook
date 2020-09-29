@@ -3,7 +3,6 @@ package com.msch.bicyclebook;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,7 +29,6 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
@@ -94,13 +92,15 @@ public class RoutesList_Adapter extends RecyclerView.Adapter<RoutesList_Adapter.
             @Override
             public void onClick(View v) {
                 String routeFileName;
-                mRV_names.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position,mRV_names.size());
-
                 routeFileName = mRV_routesIDs.get(position);
                 File filePath = new File (Environment.getExternalStorageDirectory() + "/Android/data/" + "com.msch.bicyclebook" + "/savedRoutes/" + routeFileName);
                 filePath.delete();
+
+                mRV_names.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(0, mRV_names.size());
+                notifyDataSetChanged();
+                ((AppCompatActivity) mContext).recreate();
             }
         });
 

@@ -16,8 +16,8 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -34,8 +34,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
+            android:name=".MapsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -43,20 +42,14 @@
         </activity>
 
         <activity
-            android:name=".SignIn"
-            android:label="@string/title_activity_maps">
-        </activity>
-        <activity
-            android:name=".SignUp"
-            android:label="@string/register_label">
+            android:name=".SignIn">
         </activity>
         <activity
             android:name=".RoutesList"
             android:label="@string/routes_list">
         </activity>
         <activity
-            android:name = ".SettingsScreen"
-            android:label="@string/settings">
+            android:name = ".SettingsScreen">
         </activity>
     </application>
 
